@@ -8,7 +8,7 @@
 #include <inttypes.h>
 #include <event2/event.h>
 
-#include "internal.h"
+#include "evhtp_internal.h"
 #include "evhtp/evhtp.h"
 
 

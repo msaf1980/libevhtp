@@ -8,7 +8,7 @@
 #include <unistd.h>
 #include <getopt.h>
 
-#include "internal.h"
+#include "evhtp_internal.h"
 #include "evhtp/evhtp.h"
 
 #ifndef EVHTP_DISABLE_SSL

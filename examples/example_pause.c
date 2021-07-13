@@ -11,7 +11,7 @@
 #include <stdint.h>
 #include <errno.h>
 
-#include "internal.h"
+#include "evhtp_internal.h"
 #include "evhtp/evhtp.h"
 #include "./eutils.h"
 
