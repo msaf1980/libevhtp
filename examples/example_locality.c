@@ -13,7 +13,7 @@
 #include <sched.h>
 #include <linux/filter.h>
 
-#include <evhtp/thread.h>
+#include <evhtp/evthr.h>
 #include <evhtp/evhtp.h>
 
 #ifndef SO_ATTACH_REUSEPORT_CBPF

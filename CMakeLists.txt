@@ -77,10 +77,10 @@ endif()
 if(NOT EVHTP_DISABLE_EVTHR)
     find_package(Threads)
     if(TARGET Threads::Threads)
-        list(APPEND LIBEVHTP_SOURCE_FILES  thread.c)
+        list(APPEND LIBEVHTP_SOURCE_FILES  evthr.c)
         list(APPEND LIBEVHTP_EXTERNAL_LIBS Threads::Threads)
         list(APPEND package_deps Threads)
-        list(APPEND evhtp_dir_headers "include/evhtp/thread.h")
+        list(APPEND evhtp_dir_headers "include/evhtp/evthr.h")
     endif()
 endif()
 
@@ -213,6 +213,8 @@ if(BUILD_SHARED_LIBS)
 endif()
 
 add_subdirectory(examples)
+enable_testing()
+add_subdirectory(test)
 
 # Installation (https://github.com/forexample/package-example)
 

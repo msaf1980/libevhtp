@@ -9,7 +9,7 @@
 
 /** @file */
 #ifndef EVHTP_DISABLE_EVTHR
-#include <evhtp/thread.h>
+#include <evhtp/evthr.h>
 #endif
 
 #include <evhtp/parser.h>

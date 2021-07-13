@@ -1,4 +1,6 @@
-#define _GNU_SOURCE
+#ifndef _GNU_SOURCE
+#define _GNU_SOURCE 1
+#endif
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
@@ -15,7 +17,7 @@
 #include <event2/thread.h>
 
 #include "internal.h"
-#include "evhtp/thread.h"
+#include "evhtp/evthr.h"
 
 typedef struct evthr_cmd        evthr_cmd_t;
 typedef struct evthr_pool_slist evthr_pool_slist_t;
