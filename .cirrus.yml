@@ -1,0 +1,45 @@
+container:
+  image: ubuntu:bionic
+
+task:
+  matrix:
+    - name: Build on Ubuntu (gcc, release)
+      install_dependencies_script:
+        - apt-get update
+        - apt-get install -y cmake gcc g++ libssl-dev libevent-dev libonig-dev
+      script: ./ci/run_tests.sh -DCMAKE_BUILD_TYPE=Release
+      container:
+        matrix:
+          - image: ubuntu:20.04
+          - image: ubuntu:16.04
+          - image: ubuntu:18.04
+    - name: Build on Ubuntu (gcc, debug)
+      install_dependencies_script:
+        - apt-get update
+        - apt-get install -y cmake gcc g++ libssl-dev libevent-dev libonig-dev
+      script: ./ci/run_tests.sh -DCMAKE_BUILD_TYPE=Debug
+      container:
+        matrix:
+          - image: ubuntu:20.04
+          - image: ubuntu:16.04
+          - image: ubuntu:18.04
+    - name: Build on Ubuntu (gcc, release) (shared pipe)
+      install_dependencies_script:
+        - apt-get update
+        - apt-get install -y cmake gcc g++ libssl-dev libevent-dev libonig-dev
+      script: ./ci/run_tests.sh -DCMAKE_BUILD_TYPE=Release -DEVHTP_THR_SHARED_PIPE=1
+      container:
+        matrix:
+          - image: ubuntu:20.04
+          - image: ubuntu:16.04
+          - image: ubuntu:18.04
+    - name: Build on Ubuntu (gcc, debug) (shared pipe)
+      install_dependencies_script:
+        - apt-get update
+        - apt-get install -y cmake gcc g++ libssl-dev libevent-dev libonig-dev
+      script: ./ci/run_tests.sh -DCMAKE_BUILD_TYPE=Debug -DEVHTP_THR_SHARED_PIPE=1
+      container:
+        matrix:
+          - image: ubuntu:20.04
+          - image: ubuntu:16.04
+          - image: ubuntu:18.04
