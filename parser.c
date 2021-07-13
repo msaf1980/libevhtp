@@ -8,7 +8,7 @@
 #include <sys/types.h>
 #endif
 
-#include "internal.h"
+#include "evhtp_internal.h"
 #include "evhtp/parser.h"
 #include "evhtp/config.h"
 

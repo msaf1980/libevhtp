@@ -7,7 +7,7 @@
 #include <signal.h>
 #include <inttypes.h>
 
-#include "internal.h"
+#include "evhtp_internal.h"
 #include "evhtp/evhtp.h"
 
 static int      num_threads  = 0;

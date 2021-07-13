@@ -5,7 +5,7 @@
 #include <errno.h>
 
 #include "./eutils.h"
-#include "internal.h"
+#include "evhtp_internal.h"
 #include "evhtp/evhtp.h"
 
 struct reply_ {

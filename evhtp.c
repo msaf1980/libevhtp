@@ -32,7 +32,7 @@
 #include <event2/dns.h>
 
 #include "evhtp/config.h"
-#include "internal.h"
+#include "evhtp_internal.h"
 #include "numtoa.h"
 #include "evhtp/evhtp.h"
 
