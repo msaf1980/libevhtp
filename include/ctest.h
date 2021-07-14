@@ -166,6 +166,8 @@ struct ctest {
 void CTEST_LOG(const char* fmt, ...) CTEST_IMPL_FORMAT_PRINTF(1, 2);
 void CTEST_ERR(const char* fmt, ...) CTEST_IMPL_FORMAT_PRINTF(1, 2);  // doesn't return
 
+char *CTEST_DESCRIPTION_FORMAT(char *buf, size_t n, const char* const fmt, ...);
+
 #define CTEST(sname, tname) CTEST_IMPL_CTEST(sname, tname, 0)
 #define CTEST_SKIP(sname, tname) CTEST_IMPL_CTEST(sname, tname, 1)
 
@@ -349,6 +351,17 @@ void CTEST_ERR(const char* fmt, ...)
 }
 
 CTEST_IMPL_DIAG_POP()
+
+char *CTEST_DESCRIPTION_FORMAT(char *buf, size_t n, const char* const fmt, ...) {
+    if (buf) {
+        buf[0] = '\0';
+        va_list argp;
+        va_start(argp, fmt);
+        vsnprintf(buf, n, fmt, argp);
+        va_end(argp);
+    }
+    return buf;
+}
 
 void assert_str(const char* exp, const char*  real, const char* caller, int line, const char *descr) {
     if ((exp == NULL && real != NULL) ||
